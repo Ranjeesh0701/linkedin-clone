@@ -55,9 +55,21 @@
     }
 }
 
+@media screen and (max-width: 779px) {
+    .feed__input > form > button {
+        display: block;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: gray;
+    }
+}
+
 @media screen and (max-width: 342px) {
     .feed__input > form > input {
         flex: 1;
         width: 50%;
     }
+    
+    
 }

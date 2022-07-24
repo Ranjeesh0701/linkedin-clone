@@ -5,6 +5,7 @@ import {
   Subscriptions,
   EventNote,
   CalendarViewDay,
+  Send,
 } from "@mui/icons-material";
 import "./Feed.css";
 import InputOption from "./InputOption";
@@ -37,6 +38,7 @@ const Feed = () => {
 
   const sendPost = (e) => {
     e.preventDefault();
+    if(input === "") return;
 
     db.collection("posts").add({
       name: user.displayName,
@@ -60,7 +62,9 @@ const Feed = () => {
               value={input}
               onChange={({ target }) => setInput(target.value)}
             />
-            <button onClick={sendPost} type="submit"></button>
+            <button onClick={sendPost} type="submit">
+              <Send />
+            </button>
           </form>
         </div>
         <div className="feed__inputOptions">
@@ -76,15 +80,18 @@ const Feed = () => {
       </div>
 
       <FlipMove>
-      {posts && posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-        <Post
-          key={id}
-          name={name}
-          description={description}
-          message={message}
-          photoUrl={photoUrl}
-        />
-      ))}
+        {posts &&
+          posts.map(
+            ({ id, data: { name, description, message, photoUrl } }) => (
+              <Post
+                key={id}
+                name={name}
+                description={description}
+                message={message}
+                photoUrl={photoUrl}
+              />
+            )
+          )}
       </FlipMove>
     </div>
   );
