@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { db, auth } from "../firebase";
+import { auth } from "../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { login } from "../features/userSlice";
 
-const Login = ({ screenWidth }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");

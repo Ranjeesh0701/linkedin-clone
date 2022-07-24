@@ -7,8 +7,8 @@ import {
   Notifications,
 } from "@mui/icons-material";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { logout, selectUser } from "../features/userSlice";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/userSlice";
 import { auth } from "../firebase";
 import "./Header.css";
 import HeaderOptions from "./HeaderOptions";
